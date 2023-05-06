@@ -32,8 +32,45 @@
 ;;; Commentary:
 ;;
 ;;; Code:
+(require 'hydra)
 
+(defvar repo-hydra--hydras-map (make-hash-table :test #'equal) "Hash-map with all repo-hydras.")
 
+(defmacro repo-hydra (repo-name &rest menu-entries)
+  "Create a repository specific hydra menu.
+
+REPO-NAME - must be the same as repository root directory name
+MENU-ENTRIES - hydra menu entries"
+  (let* ((hy-cmd-name (read (concat (downcase repo-name) "-repo-hydra")))
+         (commands-defs (mapcar (lambda (entry)
+								                  (cl-destructuring-bind (k ecmd des ccmd) entry
+									                  `(defun ,ecmd () (interactive) (cider-interactive-eval ,ccmd))))
+								                menu-entries))
+		     (hy-triplets (mapcar (lambda (entry)
+								                (cl-destructuring-bind (k ecmd des ccmd) entry
+								                  `(,k ,ecmd ,des)))
+							                menu-entries)))
+    (puthash repo-name (format "%s/body" hy-cmd-name) repo-hydra--hydras-map)
+	  `(progn
+	     ,@commands-defs
+	     (defhydra ,hy-cmd-name ()
+		     ,repo-name
+		     ,@hy-triplets))))
+
+(defun repo-hydra--current-git-repo ()
+  "Return current repository root folder name as a string."
+  (file-name-nondirectory
+   (substring
+    (shell-command-to-string "git rev-parse --show-toplevel")
+    0 -1)))
+
+(defun repo-hydra-show ()
+  "Show interactive Clojure dev menu."
+  (interactive)
+  (let ((menu-name (gethash (repo-hydra--current-git-repo) repo-hydra--hydras-map)))
+	  (if menu-name
+        (funcall (read menu-name))
+      (message "No dev menu defined for this git repo."))))
 
 (provide 'repo-hydra)
 ;;; repo-hydra.el ends here
