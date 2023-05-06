@@ -40,7 +40,7 @@
 (defvar repo-hydra--hydras-map (make-hash-table :test #'equal) "Hash-map with all repo-hydras.")
 
 ;;;###autoload
-(defmacro repo-hydra (repo-name &rest menu-entries)
+(defmacro repo-hydra-define-clj (repo-name &rest menu-entries)
   "Create a repository specific hydra menu.
 
 REPO-NAME - must be the same as repository root directory name
@@ -61,6 +61,28 @@ MENU-ENTRIES - hydra menu entries"
 		     ,repo-name
 		     ,@hy-triplets))))
 
+;;;###autoload
+(defmacro repo-hydra-define (repo-name &rest menu-entries)
+  "Create a repository specific hydra menu.
+
+REPO-NAME - must be the same as repository root directory name
+MENU-ENTRIES - hydra menu entries"
+  (let* ((hy-cmd-name (read (concat (downcase repo-name) "-repo-hydra")))
+		     (hy-triplets (mapcar (lambda (entry)
+								                (cl-destructuring-bind (k ecmd des) entry
+								                  `(,k ,ecmd ,des)))
+							                menu-entries)))
+    (puthash repo-name (format "%s/body" hy-cmd-name) repo-hydra--hydras-map)
+	  `(progn
+	     (defhydra ,hy-cmd-name ()
+		     ,repo-name
+		     ,@hy-triplets))))
+
+(defhydra hydra-zoom (global-map "<f2>")
+  "zoom"
+  ("g" text-scale-increase "in")
+  ("l" text-scale-decrease "out"))
+
 (defun repo-hydra--current-git-repo ()
   "Return current repository root folder name as a string."
   (file-name-nondirectory
@@ -70,7 +92,7 @@ MENU-ENTRIES - hydra menu entries"
 
 ;;;###autoload
 (defun repo-hydra-show ()
-  "Show interactive Clojure dev menu."
+  "Show repo-hydra for current repo."
   (interactive)
   (let* ((repo (repo-hydra--current-git-repo))
          (menu-name (gethash repo repo-hydra--hydras-map)))
