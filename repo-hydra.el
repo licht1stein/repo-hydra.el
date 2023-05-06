@@ -39,6 +39,7 @@
 
 (defvar repo-hydra--hydras-map (make-hash-table :test #'equal) "Hash-map with all repo-hydras.")
 
+;;;###autoload
 (defmacro repo-hydra (repo-name &rest menu-entries)
   "Create a repository specific hydra menu.
 
@@ -67,6 +68,7 @@ MENU-ENTRIES - hydra menu entries"
     (shell-command-to-string "git rev-parse --show-toplevel")
     0 -1)))
 
+;;;###autoload
 (defun repo-hydra-show ()
   "Show interactive Clojure dev menu."
   (interactive)
