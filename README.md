@@ -1,5 +1,5 @@
-# repo-hydra
-Easily create repo-specific menus.
+# repo-hydra.el
+Easily create repo-specific menus for Emacs.
 
 This library was inspired by an amazingly instructive [interview](https://www.youtube.com/watch?v=2nH59edD5Uo) by Juan Monetta ([@jpmonettas](https://github.com/jpmonettas)), he also wrote the main macro which I only slightly improved and turned into a library.
 
