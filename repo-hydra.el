@@ -72,10 +72,11 @@ MENU-ENTRIES - hydra menu entries"
 (defun repo-hydra-show ()
   "Show interactive Clojure dev menu."
   (interactive)
-  (let ((menu-name (gethash (repo-hydra--current-git-repo) repo-hydra--hydras-map)))
+  (let* ((repo (repo-hydra--current-git-repo))
+         (menu-name (gethash repo repo-hydra--hydras-map)))
 	  (if menu-name
         (funcall (read menu-name))
-      (message "No dev menu defined for this git repo."))))
+      (message (format "No repo hydra defined for %s" repo)))))
 
 (provide 'repo-hydra)
 ;;; repo-hydra.el ends here
