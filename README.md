@@ -5,7 +5,7 @@ This library was inspired by an amazingly instructinve [interview](https://www.y
 
 ## Examples
 ### Normal repo hydra
-This is an example repo-hydra for this repository. If `repo-hydra-show` is called from within the `repo-hydra.el` repository, the hydra will show.
+This is an example repo-hydra for this repository. 
 ```elisp
 (repo-hydra-define
  "repo-hydra.el"
@@ -13,8 +13,21 @@ This is an example repo-hydra for this repository. If `repo-hydra-show` is calle
  ("o" text-scale-decrease "Out"))
  ```
  
-  ![](./example/demo-1.gif)
  
+ If `repo-hydra-show` is called from within the `repo-hydra.el` repository, the hydra will show:
+   ![](./example/demo-1.gif)
+
+### Clojure repo hydra
+I have kept the original logic of the Clojure macro in `repo-hydra-define-clj`, it automatically evaluates the clojure code in strings with the current CIDER REPL:
+
+```elisp
+(repo-hydra-define-clj
+ "sanskrit"
+ ("c" sanskrit-cider-connect "Connect REPL" (cider-connect-clj '(:host "localhost" :port 33000)))
+ ("p" sanskrit-portal "Portal" "(user/portal)")
+ ("P" sanskrit-clear-portal "Clear Portal" "(user/clear-portal)")
+ ("S" sanskrit-require-snitch "Require snitch" "(require '[snitch.core :refer [defn* defmethod* *fn *let]])"))
+```
 
 ## Install
 
