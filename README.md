@@ -1,7 +1,7 @@
 # repo-hydra
 Easily create repo-specific menus.
 
-This library was inspired by an amazingly instructinve [interview](https://www.youtube.com/watch?v=2nH59edD5Uo) by Juan Monetta ([@jpmonettas](https://github.com/jpmonettas)), he also wrote the main macro which I only slightly improved and turned into a library.
+This library was inspired by an amazingly instructive [interview](https://www.youtube.com/watch?v=2nH59edD5Uo) by Juan Monetta ([@jpmonettas](https://github.com/jpmonettas)), he also wrote the main macro which I only slightly improved and turned into a library.
 
 ## Examples
 ### Normal repo hydra
@@ -40,4 +40,4 @@ I have kept the original logic of the Clojure macro in `repo-hydra-define-clj`, 
 
 
 ## Versioning
-This library uses break versioning: https://github.com/ptaoussanis/encore/blob/master/BREAK-VERSIONING.md, this means that upgrading from 1.0.x to 1.0.whatever is always non-breaking, upgrading to 1.1.x might break something small, and upgrading to 2.x.x will break something big.
+This library uses [break versioning](https://github.com/ptaoussanis/encore/blob/master/BREAK-VERSIONING.md), this means that upgrading from 1.0.x to 1.0.whatever is always non-breaking, upgrading to 1.1.x might break something small, and upgrading to 2.x.x will break something big.
