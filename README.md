@@ -13,6 +13,8 @@ This is an example repo-hydra for this repository. If `repo-hydra-show` is calle
  ("o" text-scale-decrease "Out"))
  ```
  
+  ![](./example/demo-1.gif)
+ 
 
 ## Install
 
@@ -23,7 +25,6 @@ This is an example repo-hydra for this repository. If `repo-hydra-show` is calle
   :bind ("<f6>" . repo-hydra-show))
 ```
 
-![](./example/demo-1.gif)
 
 ## Versioning
 This library uses break versioning: https://github.com/ptaoussanis/encore/blob/master/BREAK-VERSIONING.md
