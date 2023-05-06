@@ -34,7 +34,7 @@ I have kept the original logic of the Clojure macro in `repo-hydra-define-clj`, 
 ### Using use-package and straight
 ```elisp
 (use-package repo-hydra
-  :straight (:type git :host github :repo "licht1stein/repo-hydra.el")
+  :straight (:type git :host github :repo "licht1stein/repo-hydra.el" :tag "v.1.0.0")
   :bind ("<f6>" . repo-hydra-show))
 ```
 
