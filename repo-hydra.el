@@ -4,7 +4,7 @@
 ;;
 ;; Author: Mykhaylo Bilyanskyy <mb@m1k.pw>
 ;; Maintainer: Mykhaylo Bilyanskyy <mb@m1k.pw>
-;; Version: 0.1
+;; Version: 1.0.0
 ;; Package-Requires: ((hydra "0.15.0"))
 ;;
 ;; Created: 06 May 2023
@@ -30,6 +30,9 @@
 ;; This file is not part of GNU Emacs.
 ;;
 ;;; Commentary:
+;; Easily define and call repo-specific hydra menus.
+;;
+;; Uses break versioning scheme: https://github.com/ptaoussanis/encore/blob/master/BREAK-VERSIONING.md
 ;;
 ;;; Code:
 (require 'hydra)
