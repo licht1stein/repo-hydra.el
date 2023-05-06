@@ -1,11 +1,11 @@
 # repo-hydra.el
 Easily create repo-specific menus for Emacs.
 
-This library was inspired by an amazingly instructive [interview](https://www.youtube.com/watch?v=2nH59edD5Uo) by Juan Monetta ([@jpmonettas](https://github.com/jpmonettas)), he also wrote the main macro which I only slightly changed and turned into a library.
+This library was inspired by an amazingly instructive [interview](https://www.youtube.com/watch?v=2nH59edD5Uo) by Juan Monetta ([@jpmonettas](https://github.com/jpmonettas)), he also wrote the main macro which I only slightly changed` and turned into a library.
 
 ## Examples
 ### Normal repo hydra
-This is an example repo-hydra for this repository. 
+This is an example repo-hydra for this repository. Note, that the first argument to `repo-hydra-define` has to exactly match the root directory name of the git repo (case sensitive).
 ```elisp
 (repo-hydra-define
  "repo-hydra.el"
