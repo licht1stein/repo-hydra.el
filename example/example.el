@@ -1,11 +1,10 @@
-;;; example.el --- repo-hydra example -*- lexical-binding: t; -*-
+;;; example.el --- Example for repo-hydra -*- lexical-binding: t; -*-
 ;;
 ;; Copyright (c) 2023, Mykhaylo Bilyanskyy <mb@m1k.pw>
 ;;
 ;; Author: Mykhaylo Bilyanskyy <mb@m1k.pw>
 ;; Maintainer: Mykhaylo Bilyanskyy <mb@m1k.pw>
 ;; Version: 0.1
-;; Package-Requires: ((emacs "27.1"))
 ;;
 ;; Created: 06 May 2023
 ;;
@@ -36,10 +35,7 @@
 (require 'repo-hydra)
 
 ;; This is a standard hydra, can be used with any repo
-(repo-hydra-define
- "repo-hydra.el"
- ("i" text-scale-increase "In")
- ("o" text-scale-decrease "Out"))
+
 
 
 ;; This is original @jpmonettas hydra for clojure

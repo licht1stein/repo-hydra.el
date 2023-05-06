@@ -5,7 +5,7 @@
 ;; Author: Mykhaylo Bilyanskyy <mb@m1k.pw>
 ;; Maintainer: Mykhaylo Bilyanskyy <mb@m1k.pw>
 ;; Version: 1.0.0
-;; Package-Requires: ((hydra "0.15.0"))
+;; Package-Requires: ((emacs "24.1") (hydra "0.15.0"))
 ;;
 ;; Created: 06 May 2023
 ;;
@@ -77,11 +77,6 @@ MENU-ENTRIES - hydra menu entries"
 	     (defhydra ,hy-cmd-name ()
 		     ,repo-name
 		     ,@hy-triplets))))
-
-(defhydra hydra-zoom (global-map "<f2>")
-  "zoom"
-  ("g" text-scale-increase "in")
-  ("l" text-scale-decrease "out"))
 
 (defun repo-hydra--current-git-repo ()
   "Return current repository root folder name as a string."
