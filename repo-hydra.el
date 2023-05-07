@@ -90,10 +90,12 @@ MENU-ENTRIES - hydra menu entries"
   "Show repo-hydra for current repo."
   (interactive)
   (let* ((repo (repo-hydra--current-git-repo))
+         (not-repo (string-prefix-p "fatal: not" repo))
          (menu-name (gethash repo repo-hydra--hydras-map)))
-	  (if menu-name
-        (funcall (read menu-name))
-      (message (format "No repo hydra defined for %s" repo)))))
+	  (cond
+     (not-repo (message "Error: not in a git repo"))
+     (menu-name (funcall (read menu-name)))
+     (t (message (format "No repo hydra defined for %s" repo))))))
 
 (provide 'repo-hydra)
 ;;; repo-hydra.el ends here
