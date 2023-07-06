@@ -96,7 +96,7 @@ MENU-ENTRIES - hydra menu entries"
 	  (cond
      (not-repo (message "Error: not in a git repo"))
      (menu-name (funcall (read menu-name)))
-     (t (message (format "No repo hydra defined for %s" repo))))))
+     (t (message "No repo hydra defined for %s" repo)))))
 
 (provide 'repo-hydra)
 ;;; repo-hydra.el ends here
