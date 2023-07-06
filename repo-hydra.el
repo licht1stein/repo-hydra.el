@@ -1,4 +1,4 @@
-;;; repo-hydra.el --- git repo specific hydras -*- lexical-binding: t; -*-
+;;; repo-hydra.el --- Git repo specific hydras -*- lexical-binding: t; -*-
 ;;
 ;; Copyright (c) 2023, Mykhaylo Bilyanskyy <mb@m1k.pw>
 ;;
@@ -36,6 +36,7 @@
 ;;
 ;;; Code:
 (require 'hydra)
+(require 'cl-lib)
 
 (defvar repo-hydra--hydras-map (make-hash-table :test #'equal) "Hash-map with all repo-hydras.")
 
