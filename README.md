@@ -1,5 +1,5 @@
 # repo-hydra.el
-Easily create repo-specific menus for Emacs.
+Easily create repo-specific menus for Emacs. There is also a transient based version of this library [repo-transient.el](https://github.com/licht1stein/repo-transient.el)
 
 This library was inspired by an amazingly instructive [interview](https://www.youtube.com/watch?v=2nH59edD5Uo) by Juan Monetta ([@jpmonettas](https://github.com/jpmonettas)), he also wrote the main macro which I only slightly changed and turned into a library.
 
